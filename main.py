@@ -17,19 +17,25 @@ create_database()
 fill_database()
 
 converter = Converter()
-converter.products(fieldnames=['_id', 'name', 'brand', 'category', 'deeplink', 'properties.doelgroep', 'fast_mover', 'gender', 'herhaalaankopen', 'price.selling_price'], filename='products.csv')
+converter.products(
+    fieldnames=['_id', 'name', 'brand', 'category', 'deeplink', 'properties.doelgroep', 'fast_mover', 'gender',
+                'herhaalaankopen', 'price.selling_price'], filename='products.csv')
 
 '''
 Create filter and load in the file. then replace the wanted values.
 
-After that save the new data and print te amount of <null> values in the csv file to check if the filtering process worked.
+After that save the new data and print te amount of <null> values in the csv file to check if the filtering process 
+worked. 
 '''
 
 filter_products = FilterProducts()
 filter_products.load_dataframe(filename='products.csv')
-filter_products.replace_null(columns=['_id', 'name', 'brand', 'category', 'deeplink', 'fast_mover', 'gender', 'herhaalaankopen', 'selling_price', 'doelgroep'])
+filter_products.replace_null(
+    columns=['_id', 'name', 'brand', 'category', 'deeplink', 'fast_mover', 'gender', 'herhaalaankopen', 'selling_price',
+             'doelgroep'])
 filter_products.replace_doelgroep()
-filter_products.replace_gender(invalid=['Gezin', 'B2B', 'Kinderen', 'Senior', 'Baby', 'Grootverpakking', '8719497835768'])
+filter_products.replace_gender(
+    invalid=['Gezin', 'B2B', 'Kinderen', 'Senior', 'Baby', 'Grootverpakking', '8719497835768'])
 filter_products.save_dataframe()
 print(filter_products.dataframe.isna().sum())
 
@@ -38,11 +44,11 @@ print(filter_products.dataframe.isna().sum())
 absolutepath = os.getcwd()
 
 data_sender = DataSender()
-data_sender.copy_products_csv(pathname = absolutepath + "/products.csv")
+data_sender.copy_products_csv(pathname=absolutepath + "/products.csv")
 
 converter.visitors(fieldnames=['recommendations.segment', 'recommendations.latest_visit'], filename='visitors.csv')
 
-data_sender.copy_visitors_csv(pathname= absolutepath + "/visitors.csv")
+data_sender.copy_visitors_csv(pathname=absolutepath + "/visitors.csv")
 
 converter.sessions(fieldnames=['user_agent.identifier', 'session_start', 'session_end'], filename='sessions.csv')
 
