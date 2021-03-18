@@ -1,4 +1,6 @@
 import csv
+
+import numpy as np
 import pymongo
 
 
@@ -39,8 +41,8 @@ class Converter:
                     '''
                     writer.writerow(
                         {
-                            i if '.' not in i else i.split('.', 1)[1]: item.get(i, 'null') if '.' not in i else
-                            item.get(i.split('.', 1)[0], 'null')[i.split('.', 1)[1]]
+                            i if '.' not in i else i.split('.', 1)[1]: item.get(i, np.nan) if '.' not in i else
+                            item.get(i.split('.', 1)[0], np.nan)[i.split('.', 1)[1]]
                             for i in fieldnames
                         }
                     )
