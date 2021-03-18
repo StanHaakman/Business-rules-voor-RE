@@ -43,7 +43,7 @@ class DataSender:
         con = self.openconnection()
         cur = con.cursor()
 
-        query = f"COPY sessions( identifier, sessie_start, sessie_end )" \
+        query = f"COPY sessions( identifier, sessie_start, sessie_end, preferences )" \
                 f"FROM '{pathname}'" \
                 f"DELIMITER ','" \
                 f"CSV HEADER;"

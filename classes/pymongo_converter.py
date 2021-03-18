@@ -39,8 +39,8 @@ class Converter:
                     '''
                     writer.writerow(
                         {
-                            i if '.' not in i else i.split('.', 1)[1]: item.get(i) if '.' not in i else
-                            item.get(i.split('.', 1)[0])[i.split('.', 1)[1]]
+                            i if '.' not in i else i.split('.', 1)[1]: item.get(i, 'null') if '.' not in i else
+                            item.get(i.split('.', 1)[0], 'null')[i.split('.', 1)[1]]
                             for i in fieldnames
                         }
                     )

@@ -56,6 +56,7 @@ CREATE TABLE IF NOT EXISTS Sessions (
   identifier VARCHAR NULL,
   sessie_start TIMESTAMP NULL,
   sessie_end TIMESTAMP NULL,
+  preferences varchar NULL,
   PRIMARY KEY (idSessions))
 ;
 
