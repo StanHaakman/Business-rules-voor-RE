@@ -5,7 +5,23 @@ Ik ga 2 business rules maken.
 
 De eerste business rule is om producten op te halen voor aanbevelingen voor verschillende doelgroepen. Ik heb 5 doelgroepen verwerkt maar deze zijn indentiek aan elkaar qua de code en ik heb er voor gekozen om alleen target_kinderen te laten zien.
 
+De aangemaakte tabellen:
+
+![Target tabellen](https://github.com/StanHaakman/Business-rules-voor-RE/blob/main/images/target_tabellen.png)
+
+Het resultaat van select query:
+
+![Resultaat select query target kinderen](https://github.com/StanHaakman/Business-rules-voor-RE/blob/main/images/Resultaat_select_query_target_kinderen.png)
+
 De tweede business rule in om 4 productsn op te halen per sessie op basis van een preference. Ik heb 2 preferences verwerkt namelijk categorie en brand maar het resultaat is indentiek en ik laat daarom dus alleen preference_brand zien.
+
+De aangemaakte tabellen:
+
+![Preference tabellen](https://github.com/StanHaakman/Business-rules-voor-RE/blob/main/images/preference_tabellen.png)
+
+Het resultaat van select query:
+
+![Resultaat select join query preference brand](https://github.com/StanHaakman/Business-rules-voor-RE/blob/main/images/Resultaat_selectjoin_query_preference_brand.png)
 
 ## Installatie instructies
 Hier volgt een visuele en textuele uitleg over een nieuwe gebruiker dit project werkend krijgt.
